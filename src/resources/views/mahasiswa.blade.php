@@ -17,27 +17,27 @@
         <h2>Form Matakuliah</h2>
         <hr>
             <div class="form-group">
-            <label for="kodemk">Kode Matakuliah</label>
-            <input type="text" name="kodemk" class="form-control"
-                value={{ isset($data)?$data->kodemk:"" }}>
+            <label for="nim">Nim</label>
+            <input type="text" name="nim" class="form-control"
+                value={{ isset($data)?$data->nim:"" }}>
             </div>
 
             <div class="form-group">
-            <label for="matakuliah">Matakuliah</label>
-            <input type="text" name="matakuliah" class="form-control"
-                value={{ isset($data)?$data->matakuliah:"" }}>
+            <label for="nama">Nama</label>
+            <input type="text" name="nama" class="form-control"
+                value={{ isset($data)?$data->nama:"" }}>
             </div>
 
             <div class="form-group">
-            <label for="dosen">Dosen</label>
-            <input type="text" name="dosen" class="form-control"
-                value={{ isset($data)?$data->dosen:"" }}>
+            <label for="alamat">Alamat</label>
+            <input type="text" name="alamat" class="form-control"
+                value={{ isset($data)?$data->alamat:"" }}>
             </div>
         
             <div class="form-group">
-            <label for="noruang">No. Ruangan</label>
-            <input type="text" name="noruang" class="form-control"
-                value={{ isset($data)?$data->noruang:"" }}> 
+            <label for="telpon">Telpon</label>
+            <input type="text" name="telpon" class="form-control"
+                value={{ isset($data)?$data->telpon:"" }}> 
             </div>
 
             <input type="submit" value="Simpan" class="btn btn-info btn-block"> 
@@ -46,23 +46,23 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Kode Matakuliah</th>
-                <th>Matakuliah</th>
-                <th>Dosen</th>
-                <th>No. Ruangan</th>
+                <th>Nim</th>
+                <th>Nama</th>
+                <th>Alamat</th>
+                <th>Telpon</th>
                 <th colspan="2">Action</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($matakuliah as $item)
+            @foreach ($mahasiswa as $item)
                 <tr>
-                    <td>{{ $item->kodemk }}</td>
-                    <td>{{ $item->matakuliah }}</td>
-                    <td>{{ $item->dosen }}</td>
-                    <td>{{ $item->noruang }}</td>
-                    <td> <a href="{{ route('matakuliah.tampil',['id' => $item->id]) }}" 
+                    <td>{{ $item->nim }}</td>
+                    <td>{{ $item->nama }}</td>
+                    <td>{{ $item->alamat }}</td>
+                    <td>{{ $item->telepon }}</td>
+                    <td> <a href="{{ route('mahasiswa.tampil',['id' => $item->id]) }}" 
                         class="btn btn-warning btn-block">Rubah</a></td>
-                    <td> <a href="{{ route('matakuliah.hapus',['id' => $item->id]) }}" 
+                    <td> <a href="{{ route('mahasiswa.hapus',['id' => $item->id]) }}" 
                         class="btn btn-danger btn-block">Hapus</a></td>
                 </tr>
             @endforeach

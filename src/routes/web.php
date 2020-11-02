@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\MatakuliahController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +18,17 @@ use Illuminate\Support\Facades\Route;
     return view('matakuliah');
 })->name('matakuliah.index')*/
 
-Route::POST('/matakuliah/simpan',[\App\Http\Controllers\MatakuliahController::class,'simpan'])
+Route::POST('/matakuliah/simpan',[MatakuliahController::class,'simpan'])
 ->name('matakuliah.simpan');
 
-route::get('/',[\App\Http\Controllers\MatakuliahController::class,'index'])
+route::get('/',[MatakuliahController::class,'index'])
 ->name('matakuliah.index');
+
+route::get('/matakuliah/hapus/{id}',[MatakuliahController::class,'hapus'])
+->name('matakuliah.hapus');
+ 
+Route::get('/matakuliah/tampil/{id}', [MatakuliahController::class,'tampil'])
+    ->name('matakuliah.tampil');
+
+Route::post('/matakuliah/rubah/{id}', [MatakuliahController::class,'update'])
+    ->name('matakuliah.update');
